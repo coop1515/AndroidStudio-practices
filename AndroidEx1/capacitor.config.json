@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.ex1",
+  "appName": "AndroidEx1",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
