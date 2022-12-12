@@ -40,6 +40,7 @@ export default class Game extends Phaser.Scene{
         this.load.image('carrot', 'assets/carrot.png')
         this.load.image('bunny-jump', 'assets/bunny1_jump.png')
         // this.load.audio('jump', 'assets/sfx/phaseJump1.wav')
+        // console.log(navigator) 이걸로 web이랑 app인지 구분 가능.
     }
 
     create(){

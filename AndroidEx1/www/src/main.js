@@ -4,7 +4,7 @@ import Game from './scenes/Game.js';
 
 import GameOver from "./scenes/GameOver.js";
 
-console.dir(Phaser);
+// console.dir(Phaser);
 
 // console.log("Hello, World!");
 
