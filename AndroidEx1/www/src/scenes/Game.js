@@ -123,7 +123,6 @@ export default class Game extends Phaser.Scene{
 
         // pointerdown
         this.input.on('pointerdown', (pointer) => {
-            console.log(pointer)
             if(pointer.x > this.player.x)
             {
                 this.isMouseRightDown = true
