@@ -133,11 +133,16 @@ export default class Game extends Phaser.Scene{
             }
 
             })
-        // pointer up
+        // pointer up arrow함수는 this가 없기때문에 this를 사용하면 상위인 this.scene을 가리킴.
         this.input.on('pointerup', () => {
-             this.isMouseLeftDown = this.isMouseRightDown = false
-
+            this.isMouseLeftDown = this.isMouseRightDown = false
             })
+        
+        // function은 input을 가르키기때문에 this.scene으로 해야함. 
+        // this.input.on('pointerup', function() {
+        //     console.log(this.scene)
+        //     this.scene.isMouseLeftDown = this.scene.isMouseRightDown = false
+        //     })
     }
 
     update(t, dt){
