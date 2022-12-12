@@ -1,4 +1,4 @@
-package com.example.ex1;
+package com.example.bunny;
 
 import com.getcapacitor.BridgeActivity;
 

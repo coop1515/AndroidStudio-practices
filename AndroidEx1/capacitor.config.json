@@ -1,6 +1,6 @@
 {
-  "appId": "com.example.ex1",
-  "appName": "AndroidEx1",
+  "appId": "com.example.bunny",
+  "appName": "bunny",
   "webDir": "www",
   "bundledWebRuntime": false
 }

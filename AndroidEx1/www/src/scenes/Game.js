@@ -29,6 +29,9 @@ export default class Game extends Phaser.Scene{
     /** @type {Phaser.GameObjects.Text} */
     carrotsCollectedText
 
+    isMouseLeftDown = false
+    isMouseRightDown = false
+
     preload(){
         this.load.image('background', 'assets/bg_layer1.png')
         this.load.image('platform', 'assets/ground_grass.png')
@@ -113,6 +116,27 @@ export default class Game extends Phaser.Scene{
             .setScrollFactor(0) //1로 변경하게되면 동기화 되어 움직임.
             // 위치선정
             .setOrigin(0.5,0)
+
+
+        // 월요일에 이 부분 완성하기
+        this.input.on('pointerdown', function (pointer) {
+            console.log(pointer)
+            if(pointer.x > 240)
+            {
+                this.isMouseRightDown = true
+            }
+
+            else{
+                this.isMouseLeftDown = true
+            }
+            console.log("눌러")
+            console.log("lllll",this.isMouseLeftDown)
+            console.log("rrrrr",this.isMouseRightDown)
+            })
+            
+        this.input.on('pointerup', function (pointer) {
+            console.log("누르지마")
+            })
     }
 
     update(t, dt){
@@ -149,16 +173,33 @@ export default class Game extends Phaser.Scene{
         }
 
         // Player Move
-        if (this.cursors.left.isDown && !touchingDown){
+
+        if (this.cursors.left.isDown  && !touchingDown){
             this.player.setVelocityX(-200)
+        
         }
-        else if (this.cursors.right.isDown && !touchingDown){
+        else if (this.cursors.right.isDown  && !touchingDown){
             this.player.setVelocityX(200)
         }
         else{
             // stop
             this.player.setVelocityX(0)
         }
+
+        // Player Mouse Move 
+
+        // if (this.isMouseLeftDown && !touchingDown){
+        //     this.player.setVelocityX(-200)
+        
+        // }
+        // else if (this.isMouseRightDown && !touchingDown){
+        //     this.player.setVelocityX(200)
+        // }
+        // else{
+        //     // stop
+        //     this.player.setVelocityX(0)
+        // }
+
 
         this.horizontalWrap(this.player)
 
@@ -215,6 +256,8 @@ export default class Game extends Phaser.Scene{
     }
 
     handleCollectCarrot(player, carrot){
+
+        this.player.setVelocityY(-300)
 
         // hide from display
         this.carrots.killAndHide(carrot)
