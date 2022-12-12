@@ -118,10 +118,13 @@ export default class Game extends Phaser.Scene{
             .setOrigin(0.5,0)
 
 
-        // 월요일에 이 부분 완성하기
-        this.input.on('pointerdown', function (pointer) {
+
+        // player move(mouse)
+
+        // pointerdown
+        this.input.on('pointerdown', (pointer) => {
             console.log(pointer)
-            if(pointer.x > 240)
+            if(pointer.x > this.player.x)
             {
                 this.isMouseRightDown = true
             }
@@ -129,13 +132,12 @@ export default class Game extends Phaser.Scene{
             else{
                 this.isMouseLeftDown = true
             }
-            console.log("눌러")
-            console.log("lllll",this.isMouseLeftDown)
-            console.log("rrrrr",this.isMouseRightDown)
+
             })
-            
-        this.input.on('pointerup', function (pointer) {
-            console.log("누르지마")
+        // pointer up
+        this.input.on('pointerup', () => {
+             this.isMouseLeftDown = this.isMouseRightDown = false
+
             })
     }
 
@@ -174,31 +176,31 @@ export default class Game extends Phaser.Scene{
 
         // Player Move
 
-        if (this.cursors.left.isDown  && !touchingDown){
-            this.player.setVelocityX(-200)
-        
-        }
-        else if (this.cursors.right.isDown  && !touchingDown){
-            this.player.setVelocityX(200)
-        }
-        else{
-            // stop
-            this.player.setVelocityX(0)
-        }
-
-        // Player Mouse Move 
-
-        // if (this.isMouseLeftDown && !touchingDown){
+        // if (this.cursors.left.isDown  && !touchingDown){
         //     this.player.setVelocityX(-200)
         
         // }
-        // else if (this.isMouseRightDown && !touchingDown){
+        // else if (this.cursors.right.isDown  && !touchingDown){
         //     this.player.setVelocityX(200)
         // }
         // else{
         //     // stop
         //     this.player.setVelocityX(0)
         // }
+
+        // Player Mouse Move 
+
+        if (this.isMouseLeftDown && !touchingDown){
+            this.player.setVelocityX(-200)
+        
+        }
+        else if (this.isMouseRightDown && !touchingDown){
+            this.player.setVelocityX(200)
+        }
+        else{
+            // stop
+            this.player.setVelocityX(0)
+        }
 
 
         this.horizontalWrap(this.player)
