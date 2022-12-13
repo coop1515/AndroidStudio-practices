@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.RocketMouse",
+  "appName": "RocketMouse",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
