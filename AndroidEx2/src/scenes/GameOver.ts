@@ -22,8 +22,8 @@ export default class GameOver extends Phaser.Scene
         })
         .setOrigin(0.5)
 
-        console.log("gameover", this)
-        this.input.once('pointerdown ', () => {
+        // console.log("gameover", this)
+        this.input.once('pointerdown', () => {
             this.scene.stop(SceneKeys.GameOver)
 
             this.scene.stop(SceneKeys.Game)
