@@ -51,12 +51,6 @@ export default class RocketMouse extends Phaser.GameObjects.Container {
                 this.isMousedown = true
         })
 
-        // this.mouse.on('pointerdown', (pointer: any) => {
-        //     if(pointer.x > 0){
-        //     this.isMousedown = true    
-        //     }
-        // })
-
         this.scene.input.on('pointerup', () => {
             this.isMousedown = false
             })
